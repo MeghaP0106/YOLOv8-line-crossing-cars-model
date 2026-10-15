@@ -1,0 +1,1 @@
+{"name":"linesight-showcase","version":"1.0.0","private":true,"description":"YOLOv8 traffic tracking showcase","scripts":{"start":"node server.js","check":"node --check server.js && node --check app.js"}}

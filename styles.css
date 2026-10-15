@@ -1,0 +1,65 @@
+/* Simple white page with blue section borders. */
+body {
+  margin: 0;
+  background: white;
+  color: #222;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+main {
+  max-width: 800px;
+  margin: 25px auto;
+  padding: 0 18px;
+}
+h1 {
+  color: #1675bc;
+  font-size: 26px;
+  font-weight: normal;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+}
+h2 {
+  font-size: 18px;
+  color: #1675bc;
+  margin: 0 0 10px;
+}
+section {
+  border: 1px solid #3498db;
+  padding: 16px;
+  margin: 18px 0;
+}
+p { margin: 8px 0; }
+a { color: #086bb4; }
+button {
+  font: inherit;
+  border: 1px solid #2586c7;
+  background: white;
+  color: #146ba5;
+  padding: 5px 12px;
+  cursor: pointer;
+}
+button.selected { background: #2586c7; color: white; }
+button:hover { background: #e4f2fc; color: #145b8a; }
+button:focus-visible, a:focus-visible, summary:focus-visible {
+  outline: 2px solid #145b8a;
+  outline-offset: 3px;
+}
+.video-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+#video-mode-label { font-size: 11px; color: #555; margin-top: 12px; }
+video { display: block; width: 100%; max-width: 640px; background: #eee; }
+.file-info { font-size: 12px; overflow-wrap: anywhere; }
+table { border-collapse: collapse; width: 100%; max-width: 480px; }
+th, td { border: 1px solid #8ec5ec; padding: 6px 10px; text-align: left; }
+th { font-weight: normal; background: #edf6fd; width: 65%; }
+.note { font-size: 12px; color: #555; margin-top: 12px; }
+summary { cursor: pointer; color: #086bb4; }
+ol { padding-left: 22px; margin-bottom: 6px; }
+li { margin-bottom: 5px; }
+footer { font-size: 12px; text-align: center; color: #666; padding: 8px; }
+@media (max-width: 480px) {
+  main { margin: 14px auto; padding: 0 12px; }
+  section { padding: 12px; }
+  h1 { font-size: 23px; }
+}

@@ -1,0 +1,12 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.8.0+cpu
+torchvision==0.23.0+cpu
+ultralytics>=8.3,<9
+opencv-python>=4.10,<5
+lap>=0.5.12
+matplotlib
+tqdm
+ipykernel
+nbclient
+nbformat
+imageio-ffmpeg==0.6.0

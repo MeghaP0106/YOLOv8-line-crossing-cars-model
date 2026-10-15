@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YOLOv8 Vehicle Counter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>YOLOv8 Vehicle Counter</h1>
+    <p>This project tracks vehicles in a video and counts them when they cross a line.</p>
+
+    <section>
+      <h2>About the project</h2>
+      <p>The model uses YOLOv8 to detect vehicles and ByteTrack to track them. Each vehicle ID is counted once when it crosses the yellow line.</p>
+      <details>
+        <summary>How to use this page</summary>
+        <ol>
+          <li>Press play to watch the video.</li>
+          <li>Use the buttons below to switch between the original and annotated video.</li>
+          <li>View the results or download the video and notebook below.</li>
+        </ol>
+      </details>
+    </section>
+
+    <section>
+      <h2>Video</h2>
+      <div class="video-buttons" role="group" aria-label="Video view">
+        <button class="selected" data-mode="annotated" aria-pressed="true">Annotated video</button>
+        <button data-mode="original" aria-pressed="false">Original video</button>
+      </div>
+      <p id="video-mode-label">PROCESSED FOOTAGE</p>
+      <video id="traffic-video" controls playsinline preload="metadata" poster="assets/poster.jpg">
+        <source src="assets/annotated-web.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+      <p class="file-info">File: <span id="video-filename">output_single_line.mp4</span><br>
+      Resolution: <span id="video-resolution">640 × 360</span></p>
+      <p id="video-error" hidden>Unable to play the video. <a href="output_single_line.mp4" download>Download it here</a> to watch it on your computer.</p>
+    </section>
+
+    <section>
+      <h2>Results</h2>
+      <p>These are the totals for the complete video.</p>
+      <table>
+        <tbody>
+          <tr><th scope="row">Total crossings</th><td>9</td></tr>
+          <tr><th scope="row">Downward crossings</th><td>9</td></tr>
+          <tr><th scope="row">Upward crossings</th><td>0</td></tr>
+          <tr><th scope="row">Frames processed</th><td>687</td></tr>
+          <tr><th scope="row">Video duration</th><td>28.65 seconds</td></tr>
+          <tr><th scope="row">Frame rate</th><td>23.98 FPS</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Downward means moving toward the bottom of the video. Upward means moving toward the top.</p>
+    </section>
+
+    <section>
+      <h2>How it works</h2>
+      <ol>
+        <li>Read each frame from <code>d.mp4</code>.</li>
+        <li>Detect vehicles with YOLOv8n and assign tracking IDs with ByteTrack.</li>
+        <li>Check whether the bottom center of a vehicle crosses the counting line.</li>
+        <li>Draw the boxes, IDs and counts, then save the annotated video.</li>
+      </ol>
+      <p class="note">This page shows a saved model run. To process a video or change the counting line, use the notebook. Tracking errors can affect the counts.</p>
+    </section>
+
+    <section>
+      <h2>Downloads</h2>
+      <p><a href="output_single_line.mp4" download>Download annotated video</a></p>
+      <p><a href="yolov8_single_line_tracking.ipynb" download>Download Jupyter notebook</a></p>
+    </section>
+    <footer>YOLOv8 Object Tracking Project</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
